@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyTracker</title>
+    <link rel ="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
+</head>
+<body>
+    <h2>โปรแกรมบันทึกรายรับรายจ่าย</h2>
+    <div class="container">
+        <h4>ยอดคงเหลือ (บาท)</h4>
+        <h1 id="balance">฿0.00</h1>
+        <div class="income-expense-container">
+            <h4>รายรับ</h4>
+            <p id="monney-plus" class="monney plus">฿5000</p>
+        </div>
+        <div>
+            <h4>รายจ่าย</h4>
+            <p id="money-minus" class="money minus">-฿200</p>
+        </div>
+        <h3>ประวัติใช้จ่าย</h3>
+        <ul id="list" class="list">
+            <li class="minus">ค่าเติมเกม<span>฿400</span>
+                <button class="delete-btn">x</button>
+            </li>
+            <li class="minus">เงินเดือน<span>฿15000</span>
+                <button class="delete-btn">x</button>
+            </li>
+        </ul>
+        <h3>เพิ่มรายจ่าย</h3>
+        <form id="form">
+            <div class="form-control">
+                <label for="text">ชื่อรายการ</label>
+                <input type="text" name="" id="text" placeholder="ระบุรายการจ่าย">
+            </div>
+            <div class="form-control">
+                <label for="amount">จำนวนเงิน<br>
+                    (+ รายรับ , - รายจ่าย)
+                </label>
+                <input type="number" name="" id="amount" placeholder="ระบุรายจำนวนเงิน">
+            </div>
+            <button class="btn">เพิ่มรายการ</button>
+        </form>
+    </div>
+</body>
+</html>
