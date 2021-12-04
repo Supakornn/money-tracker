@@ -19,9 +19,6 @@ body {
     margin: 0;
 }
 
-.btn {
-    font-family: 'Itim', cursive;
-}
 
 .container {
     margin: 30px auto;
@@ -53,4 +50,46 @@ h4 {
     margin: 20px 0;
 }
 
+.income-expense-container>div{
+    flex: 1;
+    text-align: center;
+}
 
+.income-expense-container>div:first-of-type{
+    border-right: 1px solid #dedede;
+}
+
+.money.plus {
+    color: green;
+}
+
+.money.minus {
+    color: red;
+}
+
+label {
+    display: inline-block;
+    margin: 10px 0;
+}
+
+input[type="text"],input[type="number"]{
+    border: 1px solid #dedede;
+    border-radius: 2px;
+    display: block;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+}
+
+.btn {
+    font-family: 'Itim', cursive;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+    display: block;
+    margin: 10px 0 30px;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+}
