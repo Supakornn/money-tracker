@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Fuzzy+Bubbles&family=Itim&family=Josefin+Sans&family=Kanit&family=Mitr&family=Oswald&display=swap');
 
+/* ตัวแปรสำหรับกำนหด เงา */
 :root {
     --box-shadow:0 1px 3px rgba(0,0,0,0.12)
 }
@@ -9,6 +10,7 @@
     font-family: 'Itim', cursive;
 }
 
+/* Body*/
 body {
     font-family: 'Itim', cursive;
     background-color: #f7f7f7;
@@ -20,7 +22,7 @@ body {
     margin: 0;
 }
 
-
+/* Class container */
 .container {
     margin: 30px auto;
     width: 350px;
@@ -42,6 +44,7 @@ h4 {
     margin: 0;
 }
 
+/* class income-expense-container */
 .income-expense-container {
     display: flex;
     justify-content: space-between;
@@ -51,28 +54,34 @@ h4 {
     margin: 20px 0;
 }
 
+/* class income-expense-container ในส่วนของ div */
 .income-expense-container>div{
     flex: 1;
     text-align: center;
 }
 
+/* class income-expense-container ในส่วนของ div และ  tag ตัวแแรก เพื่อสร้างเส้นขั้นระหว่าง รายรับ กับ รายจ่าย */
 .income-expense-container>div:first-of-type{
     border-right: 1px solid #dedede;
 }
 
+/* กำหนดสีให้รายรับ */
 .money.plus {
     color: green;
 }
 
+/* กำหนดสีให้รายจ่าย */
 .money.minus {
     color: red;
 }
 
+/* รูปแบบของ label */
 label {
     display: inline-block;
     margin: 10px 0;
 }
 
+/* ช่อง input ข้อมูล*/
 input[type="text"],input[type="number"]{
     border: 1px solid #dedede;
     border-radius: 2px;
@@ -82,6 +91,7 @@ input[type="text"],input[type="number"]{
     width: 100%;
 }
 
+/* botton */
 .btn {
     font-family: 'Itim', cursive;
     background-color: green;
@@ -95,12 +105,14 @@ input[type="text"],input[type="number"]{
     width: 100%;
 }
 
+/* ส่วน list */
 .list {
     list-style-type: none;
     padding: 0;
     margin-bottom: 40px;
 }
 
+/* list รายการที่แสดง */
 .list li {
     background-color: #FFF;
     box-shadow: var(--box-shadow);
@@ -112,14 +124,17 @@ input[type="text"],input[type="number"]{
     margin: 10px 0;
 }
 
+/* รายรับกำนดแถบข้างหลังเป็นสีเขียว */
 .list li.plus {
     border-right: 5px solid #2ecc71;
 }
 
+/* รายจ่ายกำนดแถบข้างหลังเป็นสีแดง */
 .list li.minus {
     border-right: 5px solid red;
 }
 
+/* ปุ่มลบรายการ */
 .delete-btn {
     cursor: pointer;
     background-color: red;
@@ -136,10 +151,10 @@ input[type="text"],input[type="number"]{
     transition: opacity 0.3s ease;
 }
 
+/* effect ปุ่ม */
 .list li:hover .delete-btn {
     opacity: 1;
 }
-
 .btn:focus,.delete-btn:focus {
     outline: 0;
 }

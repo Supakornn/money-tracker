@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MoneyTracker</title>
     <link rel ="stylesheet" href="styles.css">
-    <script src="scripts.js"></script>
 </head>
 <body>
+    <!-- ส่วน ยอดคงเหลือ ด้านบนสุด -->
     <h2>โปรแกรมบันทึกรายรับรายจ่าย</h2>
     <div class="container">
         <h4>ยอดคงเหลือ (บาท)</h4>
         <h1 id="balance">฿0.00</h1>
+
+        <!-- รายรับ รายจ่าย -->
         <div class="income-expense-container">
             <div>
                 <h4>รายรับ</h4>
@@ -23,16 +25,13 @@
                 <p id="money-minus" class="money minus">-฿200</p>
             </div>
         </div>
+
+        <!-- ส่วนรายการใช้จ่ายที่กรอกเข้ามา -->
         <h3>ประวัติใช้จ่าย</h3>
         <ul id="list" class="list">
-            <li class="minus">ค่าอาหาร<span> - ฿400</span>
-                <button class="delete-btn">x</button>
-            </li>
-            <li class="plus">เงินเดือน<span> + ฿1500</span>
-                <button class="delete-btn">x</button>
-            </li>
-            
         </ul>
+
+        <!-- ส่วนกรอกรายการใช้จ่าย -->
         <h3>เพิ่มรายจ่าย</h3>
         <form id="form">
             <div class="form-control">
@@ -43,10 +42,13 @@
                 <label for="amount">จำนวนเงิน<br>
                     (+ รายรับ , - รายจ่าย)
                 </label>
-                <input type="number" name="" id="amount" placeholder="ระบุรายจำนวนเงิน">
+                <input type="number" name="" id="amount" placeholder="ระบุจำนวนเงิน">
             </div>
+
+            <!-- ส่วนปุ่มเพิ่มรายการ -->
             <button class="btn">เพิ่มรายการ</button>
         </form>
     </div>
+    <script src="scripts.js"></script>
 </body>
 </html>
