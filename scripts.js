@@ -7,15 +7,8 @@ const form = document.getElementById('form') // id form
 const text = document.getElementById('text') // id text
 const amount = document.getElementById('amount') // id amount
 
-// arry ของ list ที่จะนำไปแสดง
-const dataTransaction = [
-    {id:1,text:"ค่าขนม",amount:-100},
-    {id:2,text:"ค่ารถ",amount:-500},
-    {id:3,text:"เงินเดือน",amount:+1800}
-]
-
-//var ของ arry dataTransaction 
-const transactions = dataTransaction;
+// arry สำหรับเก็บรายการ
+let transactions = [];
 
 //function loop ข้อมูลใน transactions 
 function init(){
@@ -30,13 +23,18 @@ function adddata(transactions){
     const item = document.createElement('li'); // สร้าง element li ไว้สำหรับแสดงข้อมูล
     result = formatNumber(Math.abs(transactions.amount))
     item.classList.add(status); //กำนหด class ให้ item
-    item.innerHTML = `${transactions.text}<span>${symbol}${result}</span><button class="delete-btn">x</button>` ; //ส่งข้อมูลไปแสดงใน HTMl (ชื่อรายการ : เครื่องหมาย : จำนวนเงิน ปุ่ม)
+    item.innerHTML = `${transactions.text}<span>${symbol}${result}</span><button class="delete-btn" onclick="removeData(${transactions.id})">x</button>` ; //ส่งข้อมูลไปแสดงใน HTMl (ชื่อรายการ : เครื่องหมาย : จำนวนเงิน ปุ่ม)
     list.appendChild(item) // เอา item ไปใส่ใน list
 }
 
 // function format ตัวเลขหลักพัน
 function formatNumber(num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+}
+
+// function สุ่ม ID สำหรับ ใส่ใน Transactions
+function autoID(){
+    return Math.floor(Math.random()*1000000);
 }
 
 //function คำนวณยอดคงเหลือ ใช้ .map ในการเก็บค่าไว้ในตัวแปร
@@ -50,5 +48,34 @@ function calculateMoney(){
     money_minus.innerText = `฿`+ formatNumber(expense_total);
 }
 
-init();
+// function สำหรับลบ รายการ
+function removeData(id){
+    list.innerHTML = '';
+    transactions = transactions.filter(transactions=>transactions.id !== id)
+    init();
+}
 
+// function สำหรับกรองข้อมูล input
+function addTransaction(e){
+    e.preventDefault();
+    if(text.value.trim() === '' || amount.value.trim() === ''){
+        alert("กรุณาป้อนข้อมูลให้ครบ")
+    // กำหนด ID ชื่อ รายการ และจำนวนเงิน สำหรับ เก็บใน data transactions
+    }else { 
+        const data = {
+            id:autoID(),
+            text:text.value,
+            amount:+amount.value
+        }
+        //เพิ่มรายการที่ input ลงไปใน data transactions และเคืนค่าช่องกรอกข้อมูล เป็นค่าว่าง
+        transactions.push(data);
+        adddata(data);
+        calculateMoney();
+        text.value='';
+        amount.value='';
+    }
+}
+
+// รับ Event ของการกด submit ที่ปุ่มแล้วเรียกใช้ function addTransaction
+form.addEventListener('submit', addTransaction);
+init();
