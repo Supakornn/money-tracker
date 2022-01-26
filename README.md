@@ -1,2 +1,2 @@
 # Money-Tracker
-Money Tracker Website with HTML CSS JSdd
+Money Tracker Website with HTML CSS JS
